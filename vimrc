@@ -13,7 +13,7 @@ syntax enable
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 "set background=dark
-colorscheme desert256
+colorscheme ron
 
 filetype plugin indent on
 
@@ -40,9 +40,9 @@ map <leader>o :MRU<CR>
 
 "Highlight lines if they're over 80 chars (VIM > 7.2)
 if exists('+colorcolumn')
-	set colorcolumn=80
+  set colorcolumn=80
 else
-	au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
+  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
 endif
 
 "Open new tab the browser way
@@ -96,8 +96,9 @@ set showmatch
 set ignorecase
 " Case sensitive matching if caps in search string
 set smartcase
-" Highlight search matches
+" Search on steroids
 set hlsearch
+set incsearch
 
 " Use BASH style completion
 set wildmenu
@@ -109,8 +110,8 @@ set scrolloff=3
 " Line numbering
 set number
 
-"Keep 5000 lines of command line history
-set history=5000
+"Keep 100,000 lines of command line history. You cannot have enough.
+set history=100000
 
 
 "Show the cursor position all the time
@@ -138,7 +139,6 @@ set shiftwidth=2
 map = gt
 map - gT
 
-set incsearch
 
 " do not keep buffer after tab closed
 set nohidden
@@ -147,6 +147,10 @@ set nohidden
 set splitbelow
 set splitright
 
+"Filetype hacks
+autocmd BufEnter *.md setlocal filetype=markdown
+autocmd BufEnter *.css.tmpl setlocal filetype=css
+autocmd BufEnter *.js.tmpl setlocal filetype=javascript
 
 "move around more like a normal editor
 nnoremap j gj
