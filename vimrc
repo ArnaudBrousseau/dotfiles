@@ -67,8 +67,14 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
-set list
+"Easy 'big' moves
+map J 10j
+map K 10k
+map L 10l
+map H 10h
+
 "display invisible chars
+set list
 set listchars=tab:⇥·,trail:·
 
 "Trailing spaces in red
@@ -113,7 +119,6 @@ set number
 "Keep 100,000 lines of command line history. You cannot have enough.
 set history=100000
 
-
 "Show the cursor position all the time
 "set ruler
 
@@ -138,7 +143,6 @@ set shiftwidth=2
 "sick tab
 map = gt
 map - gT
-
 
 " do not keep buffer after tab closed
 set nohidden
