@@ -102,6 +102,9 @@ set cursorline
 set list
 set listchars=tab:⇥·,trail:·
 
+"Trailing spaces in red
+match Error /\v\s+$/
+
 " Show (partial) command in status line.
 set showcmd
 
@@ -198,12 +201,12 @@ set backspace=indent,eol,start
 set foldmethod=manual
 
 
-"+++++++++++++
-"++ Yelps ++++
-"+++++++++++++
+"+++++++++++++++++++++
+"++ Yelp specific ++++
+"+++++++++++++++++++++
 
-let git_email = system('echo $GIT_COMMITTER_EMAIL')
-if git_email == 'abousse@yelp.com'
+let git_email = substitute(system('echo $GIT_COMMITTER_EMAIL'), '\n', '', '')
+if git_email == 'abrousse@yelp.com'
   "Hopefully ctags (work-related)
   set tags=~/tags;/
   map <c-g> :RopeGotoDefinition<CR>
@@ -223,4 +226,3 @@ if git_email == 'abousse@yelp.com'
   "Stop caring about compiled crap (work-related)
   set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
 endif
-
