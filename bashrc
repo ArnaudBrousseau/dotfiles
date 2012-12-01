@@ -1,5 +1,6 @@
 alias yelps='ssh -A dev20'
 alias six='ssh -A dev6'
+alias two='ssh -A dev22'
 alias ec2='ssh ubuntu@50.112.249.64'
 
 # Downloaded that from
@@ -96,9 +97,6 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-
-export PS1="$IBlack$Time24h$Color_Off $BBlue\u\[\e[0;39m\]@$BGreen\h$Color_Off:$BYellow$PathShort$Color_Off$(__git_ps1_custom '%s')\n$BGreen=>$Color_Off "
-
 __git_ps1_custom () {
   echo '$(git branch &>/dev/null; \
   if [ $? -eq 0 ]; then \
@@ -112,3 +110,5 @@ __git_ps1_custom () {
     fi
 fi)'
 }
+
+export PS1="$IBlack$Time24h$Color_Off $BBlue\u\[\e[0;39m\]@$BGreen\h$Color_Off:$BYellow$PathShort$Color_Off$(__git_ps1_custom '%s')\n$BGreen=>$Color_Off "

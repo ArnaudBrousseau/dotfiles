@@ -1,28 +1,40 @@
+"++++++++++++++++++
+"++ Essentials ++++
+"++++++++++++++++++
+
 set nocompatible
-
-"Install pathogen first: https://github.com/tpope/vim-pathogen
-"call pathogen#infect()
-
+filetype plugin indent on
 set t_Co=256
 syntax on
 syntax enable
+set number
+colorscheme ron
 
-"Install solarized color scheme:
-"https://github.com/altercation/vim-colors-solarized
+
+"++++++++++++++++++++++++
+"++ Plugin specifics ++++
+"++++++++++++++++++++++++
+
+"CommandT stuff (https://github.com/wincent/Command-T)
+"let g:CommandTMaxFiles=100000
+
+"Tabspire setup (wstyke.com/tabspire)
+let g:tabspire_client_id="NONO"
+"noremap <leader>l :OpenURL trac/ticket/<cword><CR>
+
+"Pathogen (https://github.com/tpope/vim-pathogen)
+"call pathogen#infect()
+
+"Solarized color scheme (https://github.com/altercation/vim-colors-solarized)
 "let g:solarized_termcolors=256
 "let g:solarized_visibility = "high"
 "let g:solarized_contrast = "high"
 "set background=dark
-colorscheme ron
 
-filetype plugin indent on
 
-"Hopefully ctags (work-related)
-"set tags=~/tags;/
-"map <c-g> :RopeGotoDefinition<CR>
-
-"Pastebinit!! (work-related)
-"map <leader>pb :w !pastebinit -<CR>
+"++++++++++++++++
+"++ Mappings ++++
+"++++++++++++++++
 
 "Default explorer will behave more like NERDTree
 let g:netrw_liststyle=3 " Use tree-mode as default view
@@ -30,36 +42,7 @@ let g:netrw_liststyle=3 " Use tree-mode as default view
 " jj can be type faster than <Esc>
 imap jj <Esc>
 
-"MRU awesomeness
-let MRU_Max_Entries = 1000
 map <leader>o :MRU<CR>
-
-"Highlight lines if they're over 80 chars. If you're in VIM <= 7.2
-"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-"match OverLength /\%81v.\+/
-
-"Highlight lines if they're over 80 chars (VIM > 7.2)
-if exists('+colorcolumn')
-  set colorcolumn=80
-else
-  au BufWinEnter * let w:m2=matchadd('ErrorMsg', '\%>80v.\+', -1)
-endif
-
-"Open new tab the browser way
-map <c-t> :tabe
-
-"CommandT stuff (https://github.com/wincent/Command-T)
-"let g:CommandTMaxFiles=100000
-
-"Code folding. za
-set foldmethod=indent
-set foldlevel=99
-
-"Drop a debugger FUCK IT! (work-related)
-"ab fuckit import ipdb; ipdb.set_trace()
-
-"Stop caring about compiled crap (work-related)
-"set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
 
 "Easy window moves
 map <c-j> <c-w>j
@@ -73,24 +56,59 @@ map K 10k
 map L 10l
 map H 10h
 
+"Window switching: ctrl+[hjkl]
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+nnoremap <C-Q> <C-W>q
+
+"Sick tab
+map = gt
+map - gT
+
+"Move around more like a normal editor
+nnoremap j gj
+nnoremap k gk
+
+
+"++++++++++++++
+"++ Visual ++++
+"++++++++++++++
+
+" This shows what you are typing as a command. Awesome.
+set showcmd
+
+"Highlight lines if they're over 80 chars. New way. (VIM > 7.2)
+if exists('+colorcolumn')
+  highlight ColorColumn ctermbg=8
+  set colorcolumn=80
+endif
+
+"Highlight lines if they're over 80 chars. Old way.
+"highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+
+"Show the cursor position all the time
+set ruler
+
+"Show title in title bar
+set title
+
+"Highlight the current line
+set cursorline
+
 "display invisible chars
 set list
 set listchars=tab:⇥·,trail:·
 
-"Trailing spaces in red
-match Error /\v\s+$/
-
-" always set autoindenting on
-set ai
-
-" Autosave before commands like :next and :make
-set autowrite
-
-" Don't wrap words by default
-set textwidth=0
-
 " Show (partial) command in status line.
 set showcmd
+
+
+"++++++++++++
+"++ Code ++++
+"++++++++++++
 
 " This being the 21st century, I use Unicode
 set encoding=utf-8
@@ -98,10 +116,29 @@ set fileencoding=utf-8
 
 " Show matching brackets.
 set showmatch
+
+" always set autoindenting on
+set ai
+
+" Don't wrap words by default
+set textwidth=0
+
+"Filetype adjustments
+autocmd BufEnter *.md setlocal filetype=markdown
+autocmd BufEnter *.css.tmpl setlocal filetype=css
+autocmd BufEnter *.js.tmpl setlocal filetype=javascript
+
+
+"++++++++++++++
+"++ Search ++++
+"++++++++++++++
+
 " Case insensitive matching
 set ignorecase
+
 " Case sensitive matching if caps in search string
 set smartcase
+
 " Search on steroids
 set hlsearch
 set incsearch
@@ -110,82 +147,80 @@ set incsearch
 set wildmenu
 set wildmode=list:longest,full
 
-" leave more context around cursor
-set scrolloff=3
 
-" Line numbering
-set number
+"++++++++++++++++++++
+"++ Indentation! ++++
+"++++++++++++++++++++
 
-"Keep 100,000 lines of command line history. You cannot have enough.
-set history=100000
-
-"Show the cursor position all the time
-"set ruler
-
-"Show title in title bar
-set title
-
-"Highlight the current line
-set cursorline
-
-"This is Yelp's style
-"set noexpandtab
-"set softtabstop=4
-"set tabstop=4
-"set shiftwidth=4
-
-"This is my style
 set expandtab
 set softtabstop=2
 set tabstop=2
 set shiftwidth=2
 
-"sick tab
-map = gt
-map - gT
 
-" do not keep buffer after tab closed
+"+++++++++++++
+"++ Misc. ++++
+"+++++++++++++
+
+"MRU awesomeness
+let MRU_Max_Entries = 1000
+
+"Keep 100,000 lines of command line history. You cannot have enough.
+set history=100000
+
+"Save the Marks. All of them.
+set viminfo='1000,f1
+
+"Default split opening position shall be to the right and below
+set splitright
+set splitbelow
+
+"Auto-reload files, if there's no conflict
+set autoread
+
+"Do not keep buffer after tab closed
 set nohidden
 
-"set default split opening position to be below and to the right of currently active split
-set splitbelow
-set splitright
+"no intro message, no swap-file message
+set shortmess+=IA
 
-"Filetype hacks
-autocmd BufEnter *.md setlocal filetype=markdown
-autocmd BufEnter *.css.tmpl setlocal filetype=css
-autocmd BufEnter *.js.tmpl setlocal filetype=javascript
+" leave more context around cursor
+set scrolloff=3
 
-"move around more like a normal editor
-nnoremap j gj
-nnoremap k gk
 set whichwrap=b,s,h,l,<,>,[,]
 set backspace=indent,eol,start
 
-"window switching: ctrl+[hjkl]
-nnoremap <C-J> <C-W>j
-nnoremap <C-K> <C-W>k
-nnoremap <C-H> <C-W>h
-nnoremap <C-L> <C-W>l
-nnoremap <C-Q> <C-W>q
+"Code folding. za
+"set foldmethod=indent
+"set foldlevel=99
 
-"Be smarter about multiple buffers / vim instances
-"quick buffer switching with TAB, even with edited files
-set hidden
-nmap <TAB> :bn<CR>
-nmap <S-TAB> :bp<CR>
-set autoread            "auto-reload files, if there's no conflict
-set shortmess+=IA       "no intro message, no swap-file message
+"Manual folds, backed up and restored
+set foldmethod=manual
 
-" tkdiff-like bindings for vimdiff {
-    if &diff
-        "next match
-        nnoremap m ]cz.
-        "previous match
-        nnoremap M [cz.
-        "refresh the diff
-        nnoremap R :w\|set nodiff\|set diff<cr>
-        "quit, both panes
-        nnoremap q :qall<cr>
-    endif
-" }
+
+"+++++++++++++
+"++ Yelps ++++
+"+++++++++++++
+
+let git_email = system('echo $GIT_COMMITTER_EMAIL')
+if git_email == 'abousse@yelp.com'
+  "Hopefully ctags (work-related)
+  set tags=~/tags;/
+  map <c-g> :RopeGotoDefinition<CR>
+
+  "Pastebinit!! (work-related)
+  map <leader>pb :w !pastebinit -<CR>
+
+  "Drop a debugger FUCK IT! (work-related)
+  ab fuckit import ipdb; ipdb.set_trace()
+
+  "This is Yelp's style
+  set noexpandtab
+  set softtabstop=4
+  set tabstop=4
+  set shiftwidth=4
+
+  "Stop caring about compiled crap (work-related)
+  set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
+endif
+
