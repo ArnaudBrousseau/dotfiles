@@ -8,28 +8,14 @@ set t_Co=256
 syntax on
 syntax enable
 set number
-colorscheme ron
 
 
-"++++++++++++++++++++++++
-"++ Plugin specifics ++++
-"++++++++++++++++++++++++
-
-"CommandT stuff (https://github.com/wincent/Command-T)
-"let g:CommandTMaxFiles=100000
-
-"Tabspire setup (wstyke.com/tabspire)
-let g:tabspire_client_id="NONO"
-"noremap <leader>l :OpenURL trac/ticket/<cword><CR>
+"++++++++++++++++++++
+"++ Load plugins ++++
+"++++++++++++++++++++
 
 "Pathogen (https://github.com/tpope/vim-pathogen)
-"call pathogen#infect()
-
-"Solarized color scheme (https://github.com/altercation/vim-colors-solarized)
-"let g:solarized_termcolors=256
-"let g:solarized_visibility = "high"
-"let g:solarized_contrast = "high"
-"set background=dark
+call pathogen#infect()
 
 
 "++++++++++++++++
@@ -75,6 +61,15 @@ nnoremap k gk
 "++++++++++++++
 "++ Visual ++++
 "++++++++++++++
+
+"Solarized color scheme (https://github.com/altercation/vim-colors-solarized)
+let g:solarized_termcolors=256
+let g:solarized_visibility = "low" "Could be low, normal or high
+let g:solarized_contrast = "high"
+set background=dark
+colorscheme solarized
+
+"colorscheme ron "In case we're out of Solarized some day
 
 " This shows what you are typing as a command. Awesome.
 set showcmd
@@ -225,4 +220,12 @@ if git_email == 'abrousse@yelp.com'
 
   "Stop caring about compiled crap (work-related)
   set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
+
+  "Tabspire setup (wstyke.com/tabspire)
+  let g:tabspire_client_id="NONO"
+  noremap <leader>l :OpenURL trac/ticket/<cword><CR>
+
+  "CommandT stuff (https://github.com/wincent/Command-T)
+  "Yes, Yelp has a large codebase.
+  let g:CommandTMaxFiles=100000
 endif
