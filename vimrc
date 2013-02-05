@@ -57,6 +57,13 @@ map - gT
 nnoremap j gj
 nnoremap k gk
 
+".vimrc auto source
+nnoremap <Leader>sv :so $MYVIMRC<CR>
+
+"shortcut to edit .vimrc and .bash_profile
+noremap <Leader>v :tabe ~/.vimrc<CR>
+noremap <Leader>V :tabe ~/.bashrc<CR>
+
 
 "++++++++++++++
 "++ Visual ++++
@@ -222,31 +229,41 @@ if git_email == 'abrousse@yelp.com'
   set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
 
   "Tabspire setup (wstyke.com/tabspire)
+  let g:vimspire_map_keys=0
   let g:tabspire_client_id="NONO"
   noremap <leader>l :OpenURL trac/ticket/<cword><CR>
+  noremap <M-o> :OpenTabByName 
+  noremap <Leader>M :ReloadTabByName 
+  noremap <Leader>j :ReloadFocusMark 
+  noremap <Leader>J :FocusMark 
+  noremap <M-R> :ReloadCurrentTab<CR>
+  noremap <c-k> :OpenGoogleSearch 
+  noremap <c-l> :OpenURL 
+  vnoremap <Leader>pb :call OpenPB()<CR>
+  noremap <c-i> :FocusCurrentWindow<CR>
 
   "CommandT stuff (https://github.com/wincent/Command-T)
   "Yes, Yelp has a large codebase.
   let g:CommandTMaxFiles=100000
 
   "BEGIN TESTIFY SERVER
-  function StoreTestPath(filename, lineno)
+  function! StoreTestPath(filename, lineno)
     let g:t= a:filename
     let g:f = system("~/.vim/testifyserver/test_finder.py ".shellescape(a:filename)." ".shellescape(a:lineno))
     let g:f=substitute(strtrans(g:f),'\^@',' ','g')
     echo g:t g:f
   endfun
 
-  function RunTests(test_name, test_path)
+  function! RunTests(test_name, test_path)
     call TellTestServerToReloadFile(a:test_name)
     let args = a:test_name." ".a:test_path
     let l:t = system("~/.vim/testifyserver/runtests.py ".shellescape(args).' & 2>&1 > /dev/null')
   endfun
 
   map <Leader>s :call StoreTestPath(expand("%"), line("."))<CR>
-  map <Leader>t :call RunTests(g:t, g:f)<CR>
+  map <Leader>r :call RunTests(g:t, g:f)<CR>
 
-  function TellTestServerToReloadFile(filename)
+  function! TellTestServerToReloadFile(filename)
     let l:x = system('~/.vim/testifyserver/reloadfile.py '.shellescape(a:filename).' & 2>&1 > /dev/null')
   endfun
   map <Leader>r :call TellTestServerToReloadFile(expand("%"))<CR>
