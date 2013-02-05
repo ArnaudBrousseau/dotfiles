@@ -1,6 +1,7 @@
 alias yelps='ssh -A dev20'
 alias six='ssh -A dev6'
 alias two='ssh -A dev22'
+alias three='ssh -A dev23'
 alias ec2='ssh ubuntu@50.112.249.64'
 
 # Downloaded that from
@@ -112,3 +113,6 @@ fi)'
 }
 
 export PS1="$IBlack$Time24h$Color_Off $BBlue\u\[\e[0;39m\]@$BGreen\h$Color_Off:$BYellow$PathShort$Color_Off$(__git_ps1_custom '%s')\n$BGreen=>$Color_Off "
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
