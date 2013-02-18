@@ -2,12 +2,22 @@
 "++ Essentials ++++
 "++++++++++++++++++
 
+"Terminal and VIM compatibility
 set nocompatible
-filetype plugin indent on
 set t_Co=256
+
+"Syntax highlighting
 syntax on
 syntax enable
+filetype plugin indent on
+
+"Who doesn't want line numbers?
 set number
+
+"Spell checking
+"zg to add to dictionary
+"z= for suggestions
+set spell spelllang=en_us
 
 
 "++++++++++++++++++++
