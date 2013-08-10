@@ -1,2 +1,7 @@
+[user]
+	name = Arnaud Brousseau
+	email = arnaud.brousseau@gmail.com
 [color]
 	ui = auto
+[core]
+	trustctime = false
