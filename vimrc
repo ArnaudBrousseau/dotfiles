@@ -142,6 +142,7 @@ set textwidth=0
 autocmd BufEnter *.md setlocal filetype=markdown
 autocmd BufEnter *.css.tmpl setlocal filetype=css
 autocmd BufEnter *.js.tmpl setlocal filetype=javascript
+autocmd BufEnter *.html.eco setlocal filetype=html
 
 
 "++++++++++++++
@@ -180,8 +181,8 @@ set shiftwidth=4
 "MRU awesomeness
 let MRU_Max_Entries = 1000
 
-"Keep 100,000 lines of command line history. You cannot have enough.
-set history=100000
+"Keep 10,000 lines of command line history. You cannot have enough.
+set history=10000
 
 "Save the Marks. All of them.
 set viminfo='1000,f1
