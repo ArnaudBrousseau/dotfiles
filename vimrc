@@ -227,8 +227,8 @@ if git_email == 'abrousse@yelp.com'
   "Internal pastebin
   map <leader>pb :w !pastebinit -<CR>
 
-  "Drop a debugger FUCK IT!
-  ab fuckit import ipdb; ipdb.set_trace()
+  "Easy debugging
+  ab pdb import pdb; pdb.set_trace()
 
   "This is Yelp's style
   set noexpandtab
