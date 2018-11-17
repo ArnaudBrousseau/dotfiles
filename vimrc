@@ -11,6 +11,9 @@ syntax on
 syntax enable
 filetype plugin indent on
 
+"Disables Syntastic for HTML files. Too many edge cases
+let syntastic_mode_map = { 'passive_filetypes': ['html'] }
+
 "Who doesn't want line numbers?
 set number
 
