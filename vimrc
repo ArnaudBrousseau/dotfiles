@@ -223,11 +223,15 @@ map <c-g> :RopeGotoDefinition<CR>
 "Easy debugging
 ab pdb import pdb; pdb.set_trace()
 
-"This is Yelp's style
-set noexpandtab
+"Python & most languages
 set softtabstop=4
 set tabstop=4
 set shiftwidth=4
+
+"For frontend stuff the convention is 2 spaces
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "Stop caring about compiled crap
 set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
