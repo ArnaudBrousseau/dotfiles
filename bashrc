@@ -118,3 +118,9 @@ export PATH="/Users/arnaud/bin:/usr/local/heroku/bin:/Users/arnaud/.rvm/bin:$PAT
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH="$PATH:$HOME/bin/node-v8.6.0-darwin-x64/bin" # Add node to PATH
 PATH="$PATH:$HOME/emsdk/emscripten/1.38.10" # Add emscripten to PATH
+
+# Ensures homebrew packages are seen first
+PATH=/usr/local/bin:$PATH
+
+# Rust
+source /Users/arnaud/.cargo/env
