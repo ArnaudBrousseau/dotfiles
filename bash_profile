@@ -8,6 +8,5 @@ fi
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.5/bin:${PATH}"
 export PATH
-export HOMEBREW_GITHUB_API_TOKEN=180d5050fc7be83dfe7d2409683fffb847a74d91
 
 export PATH="$HOME/.cargo/bin:$PATH"
