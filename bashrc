@@ -1,4 +1,3 @@
-alias yelps='ssh -A abrousse@dev7-devc'
 alias ec2='ssh ubuntu@50.112.249.64'
 alias vps='ssh -A x61@vps363138.ovh.net'
 
