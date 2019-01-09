@@ -166,6 +166,8 @@ set incsearch
 set wildmenu
 set wildmode=list:longest,full
 
+" The <Left>s are here to place the cursor where the patterns needs to go
+noremap <leader>g :vim //j */** \| vert copen 80<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
 
 "++++++++++++++++++++
 "++ Indentation! ++++
