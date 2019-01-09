@@ -237,4 +237,4 @@ autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "Stop caring about compiled crap
-set wildignore+=*.o,*.obj,.git,*.pyc,*templates/*.py,#*#,build/*
+set wildignore+=*.o,*.obj,.git,.hg,*.pyc,*templates/*.py,#*#,build/*,node_modules/*
