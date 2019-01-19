@@ -1,6 +1,7 @@
 alias ec2='ssh ubuntu@50.112.249.64'
 alias vps='ssh -A x61@vps363138.ovh.net'
 alias ovh='ssh -A osmoz@ftp.240plan.ovh.net'
+alias iris='ssh -A ec2-user@ec2-35-180-114-209.eu-west-3.compute.amazonaws.com'
 
 # Downloaded that from
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
