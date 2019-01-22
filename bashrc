@@ -123,4 +123,4 @@ PATH="$PATH:$HOME/emsdk/emscripten/1.38.10" # Add emscripten to PATH
 PATH=/usr/local/bin:$PATH
 
 # Rust
-source /Users/arnaud/.cargo/env
+[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
