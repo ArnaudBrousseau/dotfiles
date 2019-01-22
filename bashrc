@@ -115,7 +115,7 @@ export PS1="$IBlack$Time24h$Color_Off $BBlue\u\[\e[0;39m\]@$BGreen\h$Color_Off:$
 ### Added by the Heroku Toolbelt
 export PATH="/Users/arnaud/bin:/usr/local/heroku/bin:/Users/arnaud/.rvm/bin:$PATH"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 PATH="$PATH:$HOME/bin/node-v8.6.0-darwin-x64/bin" # Add node to PATH
 PATH="$PATH:$HOME/emsdk/emscripten/1.38.10" # Add emscripten to PATH
 
