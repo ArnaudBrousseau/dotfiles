@@ -236,5 +236,8 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
+" Ruby is also 2 spaces
+autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
 "Stop caring about compiled crap
 set wildignore+=*.o,*.obj,.git,.hg,*.pyc,*templates/*.py,#*#,build/*,node_modules/*
