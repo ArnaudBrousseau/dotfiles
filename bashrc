@@ -126,6 +126,13 @@ PATH=/usr/local/bin:$PATH
 # Rust
 [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
+# assume-role
+source `which assume-role`
+export SAML_IDP_ASSERTION_URL="https://sso.cbhq.net/api/v1/saml/sso"
+export AWS_ASSUME_ROLE_AUTH_SCHEME="saml"
+export SAML_IDP_REQUEST_BODY_TEMPLATE='{"service": "aws", "email": "$saml_user", "password": "$saml_password"}'
+export SAML_IDP_NAME='saml-idp'
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
