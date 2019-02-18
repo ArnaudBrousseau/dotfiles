@@ -127,7 +127,7 @@ PATH=/usr/local/bin:$PATH
 [[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
 
 # assume-role
-source `which assume-role`
+[[ -s $(which assume-role) ]] && source `which assume-role`
 export SAML_IDP_ASSERTION_URL="https://sso.cbhq.net/api/v1/saml/sso"
 export AWS_ASSUME_ROLE_AUTH_SCHEME="saml"
 export SAML_IDP_REQUEST_BODY_TEMPLATE='{"service": "aws", "email": "$saml_user", "password": "$saml_password"}'
