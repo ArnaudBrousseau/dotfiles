@@ -224,6 +224,7 @@ map <c-g> :RopeGotoDefinition<CR>
 
 "Easy debugging
 ab pdb import pdb; pdb.set_trace()
+ab pry require 'pry'; binding.pry
 
 "Python & most languages
 set softtabstop=4
