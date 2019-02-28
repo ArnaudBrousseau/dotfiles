@@ -89,7 +89,7 @@ noremap <Leader>V :tabe ~/.bashrc<CR>
 "set background=dark
 "colorscheme solarized
 
-colorscheme ron
+colorscheme slate
 
 " This shows what you are typing as a command. Awesome.
 set showcmd
