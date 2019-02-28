@@ -83,13 +83,13 @@ noremap <Leader>V :tabe ~/.bashrc<CR>
 "++++++++++++++
 
 "Solarized color scheme (https://github.com/altercation/vim-colors-solarized)
-let g:solarized_termcolors=256
-let g:solarized_visibility = "low" "Could be low, normal or high
-let g:solarized_contrast = "high"
-set background=dark
-colorscheme solarized
+"let g:solarized_termcolors=256
+"let g:solarized_visibility = "high" "Could be low, normal or high
+"let g:solarized_contrast = "high"
+"set background=dark
+"colorscheme solarized
 
-"colorscheme ron "In case we're out of Solarized some day
+colorscheme ron
 
 " This shows what you are typing as a command. Awesome.
 set showcmd
