@@ -20,7 +20,7 @@ set number
 "Spell checking
 "zg to add to dictionary
 "z= for suggestions
-set spell spelllang=en_us
+"set spell spelllang=en_us
 
 
 "++++++++++++++++++++
