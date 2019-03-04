@@ -22,6 +22,18 @@ set number
 "z= for suggestions
 "set spell spelllang=en_us
 
+"Ctrl+P
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "++++++++++++++++++++
 "++ Load plugins ++++
@@ -241,4 +253,12 @@ autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "Stop caring about compiled crap
-set wildignore+=*.o,*.obj,.git,.hg,*.pyc,*templates/*.py,#*#,build/*,node_modules/*
+set wildignore+=*.o,*.obj
+"Ignore VCS internals
+set wildignore+=.git,.hg
+"Python projects
+set wildignore+=*.pyc,*templates/*.py,#*#,build/*
+"JavaScript projects
+set wildignore+=node_modules/*
+"Ruby project
+set wildignore+=tmp
