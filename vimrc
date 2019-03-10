@@ -89,6 +89,8 @@ nnoremap <Leader>sv :so $MYVIMRC<CR>
 noremap <Leader>v :tabe ~/.vimrc<CR>
 noremap <Leader>V :tabe ~/.bashrc<CR>
 
+"<Ctrl+b> + buffer number or name fragment to jump to it
+map <C-b> :ls<cr>:b<space>
 
 "++++++++++++++
 "++ Visual ++++
@@ -124,6 +126,10 @@ set title
 
 "Highlight the current line
 set cursorline
+
+" Makes the current line stand out with bold and in the numberline
+hi CursorLine cterm=bold
+hi LineNr cterm=bold ctermfg=0 ctermbg=none
 
 "display invisible chars
 set list
@@ -232,7 +238,6 @@ set foldmethod=manual
 
 "Hopefully ctags
 set tags=~/tags;/
-map <c-g> :RopeGotoDefinition<CR>
 
 "Easy debugging
 ab pdb import pdb; pdb.set_trace()
