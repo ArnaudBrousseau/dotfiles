@@ -92,6 +92,12 @@ noremap <Leader>V :tabe ~/.bashrc<CR>
 "<Ctrl+b> + buffer number or name fragment to jump to it
 map <C-b> :ls<cr>:b<space>
 
+"Tight interaction between vim and tmux
+map <Leader>vp :VimuxPromptCommand<CR>
+map <Leader>vl :VimuxRunLastCommand<CR>
+"Bundle Exec Rspec <current file>
+map <Leader>ber :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%"))<CR>
+
 "++++++++++++++
 "++ Visual ++++
 "++++++++++++++
