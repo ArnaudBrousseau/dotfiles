@@ -1,8 +1,3 @@
-alias ec2='ssh ubuntu@50.112.249.64'
-alias vps='ssh -A x61@vps363138.ovh.net'
-alias ovh='ssh -A osmoz@ftp.240plan.ovh.net'
-alias iris='ssh -A ec2-user@ec2-35-180-114-209.eu-west-3.compute.amazonaws.com'
-
 # Downloaded that from
 # https://raw.github.com/git/git/master/contrib/completion/git-prompt.sh
 # It gives the magic __git_ps1 bash function for PS1 integration.
@@ -112,27 +107,3 @@ fi)'
 }
 
 export PS1="$IBlack$Time24h$Color_Off $BBlue\u\[\e[0;39m\]@$BGreen\h$Color_Off:$BYellow$PathShort$Color_Off$(__git_ps1_custom '%s')\n$BGreen=>$Color_Off "
-
-### Added by the Heroku Toolbelt
-export PATH="/Users/arnaud/bin:/usr/local/heroku/bin:/Users/arnaud/.rvm/bin:$PATH"
-
-PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-PATH="$PATH:$HOME/bin/node-v8.6.0-darwin-x64/bin" # Add node to PATH
-PATH="$PATH:$HOME/emsdk/emscripten/1.38.10" # Add emscripten to PATH
-
-# Ensures homebrew packages are seen first
-PATH=/usr/local/bin:$PATH
-
-# Rust
-[[ -s "$HOME/.cargo/env" ]] && source "$HOME/.cargo/env"
-
-# assume-role
-[[ -s $(which assume-role) ]] && source `which assume-role`
-export SAML_IDP_ASSERTION_URL="https://sso.cbhq.net/api/v1/saml/sso"
-export AWS_ASSUME_ROLE_AUTH_SCHEME="saml"
-export SAML_IDP_REQUEST_BODY_TEMPLATE='{"service": "aws", "email": "$saml_user", "password": "$saml_password"}'
-export SAML_IDP_NAME='saml-idp'
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
