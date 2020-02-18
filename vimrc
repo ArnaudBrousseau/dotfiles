@@ -190,8 +190,11 @@ set incsearch
 set wildmenu
 set wildmode=list:longest,full
 
+" Set grep to be git grep
+set grepprg=git\ grep\ -n
+
 " The <Left>s are here to place the cursor where the patterns needs to go
-noremap <leader>g :vim //j */** \| vert copen 80<Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left><Left>
+noremap <leader>g :grep! <cword>\| copen<Left><Left><Left><Left><Left><Left><Left>
 
 "++++++++++++++++++++
 "++ Indentation! ++++
@@ -243,7 +246,6 @@ set backspace=indent,eol,start
 set foldmethod=manual
 
 "Hopefully ctags
-set tags=~/tags;/
 
 "Easy debugging
 ab pdb import pdb; pdb.set_trace()
@@ -260,8 +262,12 @@ autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType js setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
-" Ruby is also 2 spaces
+" Ruby/Java are also 2 spaces
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType java setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+"Go indentation (tabs)
+autocmd FileType go set expandtab!
 
 "Stop caring about compiled crap
 set wildignore+=*.o,*.obj
