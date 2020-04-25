@@ -103,13 +103,13 @@ map <Leader>ber :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%")
 "++++++++++++++
 
 "Solarized color scheme (https://github.com/altercation/vim-colors-solarized)
-"let g:solarized_termcolors=256
-"let g:solarized_visibility = "high" "Could be low, normal or high
-"let g:solarized_contrast = "high"
-"set background=dark
-"colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_visibility = "high" "Could be low, normal or high
+let g:solarized_contrast = "high"
+set background=dark
+colorscheme solarized
 
-colorscheme slate
+"colorscheme slate
 
 " This shows what you are typing as a command. Awesome.
 set showcmd
@@ -135,7 +135,6 @@ set cursorline
 
 " Makes the current line stand out with bold and in the numberline
 hi CursorLine cterm=bold
-hi LineNr cterm=bold ctermfg=0 ctermbg=none
 
 "display invisible chars
 set list
