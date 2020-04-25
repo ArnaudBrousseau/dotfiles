@@ -18,7 +18,7 @@ PATH=/usr/local/bin:$PATH
 
 # Ruby
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
-eval "$(rbenv init -)"
+hash rbenv 2>/dev/null && eval "$(rbenv init -)"
 
 # JS
 export NVM_DIR="$HOME/.nvm"
